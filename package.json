@@ -1,7 +1,7 @@
 {
   "name": "vue-2-webpack-4-boilerplate",
   "version": "1.0.0",
-  "description": "Vue 2 application with webpack 4 boilerplate",
+  "description": "Vue 2 application with webpack 4 boilerplate + webpack-cdn-plugin",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --progress",
     "staging": "cross-env NODE_ENV=staging webpack",
@@ -9,15 +9,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/samteb/vue-2-webpack-4-boilerplate"
+    "url": "https://github.com/mahammad8564/vue-2-webpack-4-boilerplate"
   },
   "keywords": [
     "Vue",
-    "Webpack 4"
+    "Webpack 4",
+    "webpack-cdn-plugin"
   ],
-  "author": "samteb <sam.teboul@gmail.com>",
+  "author": "Maddy <mahammadkc@gmail.com>",
   "license": "MIT",
-  "homepage": "https://github.com/samteb/vue-2-webpack-4-boilerplate",
+  "homepage": "https://github.com/mahammad8564/vue-2-webpack-4-boilerplate",
   "dependencies": {
     "@babel/polyfill": "~7.2",
     "vue": "~2.6",
@@ -58,6 +59,7 @@
     "vue-template-compiler": "~2.6",
     "webpack": "~4.29",
     "webpack-bundle-analyzer": "~3.3",
+    "webpack-cdn-plugin": "^3.3.1",
     "webpack-cli": "~3.2",
     "webpack-dev-server": "~3.1",
     "webpack-hot-middleware": "~2.24",

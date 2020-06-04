@@ -5,6 +5,11 @@
     "es6": true,
     "node": true
   },
+  "globals": {
+    "Vue": true,
+    "Vuex": true,
+    "VueRouter": true
+  },
   "parserOptions": {
     "parser": "babel-eslint",
     "sourceType": "module",

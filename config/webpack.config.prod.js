@@ -6,10 +6,13 @@ const OptimizeCSSAssetsPlugin  = require('optimize-css-assets-webpack-plugin');
 const MiniCSSExtractPlugin     = require('mini-css-extract-plugin');
 const UglifyJSPlugin           = require('uglifyjs-webpack-plugin');
 const CompressionPlugin        = require('compression-webpack-plugin');
+const HtmlWebpackPlugin        = require('html-webpack-plugin');
+const WebpackCdnPlugin         = require('webpack-cdn-plugin');
 const helpers                  = require('./helpers');
 const commonConfig             = require('./webpack.config.common');
 const isProd                   = process.env.NODE_ENV === 'production';
 const environment              = isProd ? require('./env/prod.env') : require('./env/staging.env');
+const cdnPluginConfig          = require('./plugins/webpack-cdn-plugin');
 
 const webpackConfig = merge(commonConfig, {
     mode: 'production',
@@ -55,6 +58,10 @@ const webpackConfig = merge(commonConfig, {
         }
     },
     plugins: [
+        new HtmlWebpackPlugin({
+            template: 'index.html'
+        }),
+        new WebpackCdnPlugin(cdnPluginConfig),
         new webpack.EnvironmentPlugin(environment),
         new MiniCSSExtractPlugin({
             filename: 'css/[name].[hash].css',

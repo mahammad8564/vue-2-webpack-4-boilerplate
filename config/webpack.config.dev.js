@@ -2,10 +2,13 @@
 
 const webpack              = require('webpack');
 const merge                = require('webpack-merge');
+const HtmlWebpackPlugin    = require('html-webpack-plugin');
+const WebpackCdnPlugin     = require('webpack-cdn-plugin');
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 const helpers              = require('./helpers');
 const commonConfig         = require('./webpack.config.common');
 const environment          = require('./env/dev.env');
+const cdnPluginConfig      = require('./plugins/webpack-cdn-plugin');
 
 const webpackConfig = merge(commonConfig, {
     mode: 'development',
@@ -23,6 +26,10 @@ const webpackConfig = merge(commonConfig, {
         }
     },
     plugins: [
+        new HtmlWebpackPlugin({
+            template: 'index.html'
+        }),
+        new WebpackCdnPlugin(cdnPluginConfig),
         new webpack.EnvironmentPlugin(environment),
         new webpack.HotModuleReplacementPlugin(),
         new FriendlyErrorsPlugin()
